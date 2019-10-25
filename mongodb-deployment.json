@@ -1,0 +1,38 @@
+{
+  "kind": "Deployment",
+  "spec": {
+    "replicas": 1,
+    "template": {
+      "spec": {
+        "containers": [
+          {
+            "image": "mongo",
+            "name": "mongo",
+            "ports": [
+              {
+                "containerPort": 27017
+              }
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "labels": {
+          "app": "mongo"
+        }
+      }
+    },
+    "selector": {
+      "matchLabels": {
+        "app": "mongo"
+      }
+    }
+  },
+  "apiVersion": "apps/v1",
+  "metadata": {
+    "labels": {
+      "app": "mongo"
+    },
+    "name": "mongo-deployment"
+  }
+}
